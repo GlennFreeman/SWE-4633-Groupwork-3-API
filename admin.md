@@ -10,7 +10,7 @@ Creates a new user\
 | email | string | Yes | Null | Email of new user, used to log in|
 | password | string | No | 1234 | default password for new user, encouraged to change later |
 | role | integer | No | 0 | role of new user, see roles table in DB |
-**Response:**
+### Response:
 ```json
 {
  "sucessful": True
