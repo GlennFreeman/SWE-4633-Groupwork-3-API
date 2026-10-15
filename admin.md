@@ -8,8 +8,8 @@ Creates a new user\
 |-----------|------|----------|----------|-------------|
 | name | string | Yes | - | Name of new user, preferably formatted "last, first" |
 | email | string | Yes | - | Email of new user, required to log in|
-| password | string | No | 1234 | default password for new user, encouraged to change later |
-| role | integer | No | 0 | role of new user, see roles table in DB for valid values|
+| password | string | No | 1234 | Default password for new user, encouraged to change later |
+| role | integer | No | 0 | Role of new user, see roles table in DB for valid values|
 ### Response:
 ```json
 {
