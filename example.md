@@ -1,16 +1,16 @@
 ## Users API
 ### Get All Users
-Retrieve a paginated list of all users.
-**Endpoint:** `GET /users`
-**Authentication:** Required
-**Query Parameters:**
+Retrieve a paginated list of all users. \
+**Endpoint:** `GET /users` \
+**Authentication:** Required \
+**Query Parameters:** \
 | Parameter | Type | Required | Default | Description |
 |-----------|------|----------|----------|-------------|
 | page | integer | No | 1 | Page number |
 | limit | integer | No | 10 | Items per page (1-100) |
 | sort | string | No | createdAt | Sort field |
 | order | string | No | desc | Sort order (asc|desc) |
-| search | string | No | - | Search term (name or email) |
+| search | string | No | - | Search term (name or email) | \
 **Response:**
 ```json
 {
