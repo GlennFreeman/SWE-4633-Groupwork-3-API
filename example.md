@@ -1,8 +1,8 @@
 ## Users API
 ### Get All Users
-Retrieve a paginated list of all users.
-**Endpoint:** `GET /users`
-**Authentication:** Required
+Retrieve a paginated list of all users.\
+**Endpoint:** `GET /users`\
+**Authentication:** Required\
 **Query Parameters:**
 | Parameter | Type | Required | Default | Description |
 |-----------|------|----------|----------|-------------|
@@ -45,9 +45,9 @@ Retrieve a paginated list of all users.
 ```markdown
 ## Users API
 ### Get All Users
-Retrieve a paginated list of all users.
-**Endpoint:** `GET /users`
-**Authentication:** Required
+Retrieve a paginated list of all users.\
+**Endpoint:** `GET /users`\
+**Authentication:** Required\
 **Query Parameters:**
 | Parameter | Type | Required | Default | Description |
 |-----------|------|----------|----------|-------------|
@@ -56,7 +56,7 @@ Retrieve a paginated list of all users.
 | sort | string | No | createdAt | Sort field |
 | order | string | No | desc | Sort order (asc|desc) |
 | search | string | No | - | Search term (name or email) |
-**Response:**
+### Response:
 ```json
 {
  "data": [
