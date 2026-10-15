@@ -1,6 +1,4 @@
 ## Users API
-```markdown
-## Users API
 ### Get All Users
 Retrieve a paginated list of all users.
 **Endpoint:** `GET /users`
