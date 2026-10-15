@@ -84,3 +84,4 @@ Retrieve a paginated list of all users.
    "totalPages": 10
  }
 }
+```
