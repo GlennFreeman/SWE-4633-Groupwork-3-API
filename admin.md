@@ -13,7 +13,7 @@ Creates a new user\
 ### Response:
 ```json
 {
- "sucessful": True
+ "sucessful": true
  "message": "no errors"
 }
 ```
