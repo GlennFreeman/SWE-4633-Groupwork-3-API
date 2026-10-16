@@ -1,0 +1,6 @@
+title: Example API Documentation
+url: https://glennfreeman.github.io
+baseurl: /SWE-4633-Groupwork-3-API
+remote_theme: just-the-docs/just-the-docs@v0.10.0
+plugins:
+  - jekyll-remote-theme
