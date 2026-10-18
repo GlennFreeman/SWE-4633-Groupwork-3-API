@@ -176,3 +176,26 @@ Content-Type: application/json
 
 { "value": { "text": "Acknowledge" }, "points": 3, "next_prompt_id": 12 }
 ```
+
+## Update Answer
+**Endpoint:** `/answers/{id}/update`\
+**Method:** `POST`
+
+**Inputs**
+| Name | Location | Type | Required | Description |
+|------|----------|------|----------|-------------|
+| id | path | integer | Yes | Answer ID |
+| value | body | object | No | New answer text |
+| points | body | integer | No | New points |
+| next_prompt_id | body | integer | No | New next prompt (`null` to end the scenario) |
+
+**Outputs** (`200`): the updated answer.
+
+**Example**
+```
+POST https://example.com/api/v1/answers/30/update
+Authorization: Bearer eyJhbGciOi...
+Content-Type: application/json
+
+{ "points": 5 }
+```
