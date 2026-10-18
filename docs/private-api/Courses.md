@@ -1,6 +1,6 @@
 ---
 title: Courses
-nav_order: 4
+nav_order: 2
 parent: Private API
 ---
 
@@ -25,4 +25,37 @@ Authorization: Bearer eyJhbGciOi...
   { "id": 3, "name": "Operations" },
   ...
 ]
+```
+
+## Get Course
+**Endpoint:** `/courses/{id}`\
+**Method:** `GET`
+
+**Inputs**
+| Name | Location | Type | Required | Description |
+|------|----------|------|----------|-------------|
+| id | path | integer | Yes | Course ID |
+
+**Outputs** (`200`)
+| Field | Type | Description |
+|-------|------|-------------|
+| id | integer | Course ID |
+| name | string | Course name |
+| scenarios | array | Scenarios in the course, each with `id` (integer), `name` (string) |
+
+**Example**
+```
+GET https://example.com/api/v1/courses/2
+Authorization: Bearer eyJhbGciOi...
+```
+```json
+{
+  "id": 2,
+  "name": "Finance Basics",
+  "scenarios": [
+    { "id": 5, "name": "Budget Crisis" },
+    { "id": 6, "name": "Supplier Dispute" },
+    ...
+  ]
+}
 ```
