@@ -153,3 +153,26 @@ Content-Type: application/json
 POST https://example.com/api/v1/prompts/12/delete
 Authorization: Bearer eyJhbGciOi...
 ```
+
+## Add Answer
+**Endpoint:** `/prompts/{id}/add_answer`\
+**Method:** `POST`
+
+**Inputs**
+| Name | Location | Type | Required | Description |
+|------|----------|------|----------|-------------|
+| id | path | integer | Yes | Prompt ID the answer belongs to |
+| value | body | object | Yes | Answer text: `text` (string) |
+| points | body | integer | Yes | Points awarded for choosing this answer |
+| next_prompt_id | body | integer | No | Prompt to show next. Omit to end the scenario |
+
+**Outputs** (`200`): the created answer with `id` (integer), `value` (object), `points` (integer), `next_prompt_id` (integer or null).
+
+**Example**
+```
+POST https://example.com/api/v1/prompts/11/add_answer
+Authorization: Bearer eyJhbGciOi...
+Content-Type: application/json
+
+{ "value": { "text": "Acknowledge" }, "points": 3, "next_prompt_id": 12 }
+```
