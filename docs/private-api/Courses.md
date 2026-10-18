@@ -60,7 +60,6 @@ Authorization: Bearer eyJhbGciOi...
 }
 ```
 
-
 ## Create Course
 **Endpoint:** `/courses/create`\
 **Method:** `POST`
@@ -102,4 +101,21 @@ Authorization: Bearer eyJhbGciOi...
 Content-Type: application/json
 
 { "name": "Finance Fundamentals", "scenario_ids": [5, 7] }
+```
+
+## Delete Course
+**Endpoint:** `/courses/{id}/delete`\
+**Method:** `POST`
+
+**Inputs**
+| Name | Location | Type | Required | Description |
+|------|----------|------|----------|-------------|
+| id | path | integer | Yes | Course ID |
+
+**Outputs:** none (`200`).
+
+**Example**
+```
+POST https://example.com/api/v1/courses/2/delete
+Authorization: Bearer eyJhbGciOi...
 ```
