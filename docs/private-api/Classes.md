@@ -128,3 +128,21 @@ Authorization: Bearer eyJhbGciOi...
 POST https://example.com/api/v1/classes/1/add_student/3
 Authorization: Bearer eyJhbGciOi...
 ```
+
+## Remove Student from Class
+**Endpoint:** `/classes/{id}/remove_student/{user_id}`\
+**Method:** `POST`
+
+**Inputs**
+| Name | Location | Type | Required | Description |
+|------|----------|------|----------|-------------|
+| id | path | integer | Yes | Class ID |
+| user_id | path | integer | Yes | Student's user ID |
+
+**Outputs:** none (`200`).
+
+**Example**
+```
+POST https://example.com/api/v1/classes/1/remove_student/3
+Authorization: Bearer eyJhbGciOi...
+```
