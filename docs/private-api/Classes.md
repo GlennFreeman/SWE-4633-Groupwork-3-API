@@ -72,3 +72,24 @@ Content-Type: application/json
 
 { "name": "MGT 7999 Spring 2027" }
 ```
+
+## Rename Class
+**Endpoint:** `/classes/{id}/update`\
+**Method:** `POST`
+
+**Inputs**
+| Name | Location | Type | Required | Description |
+|------|----------|------|----------|-------------|
+| id | path | integer | Yes | Class ID |
+| name | body | string | Yes | New name |
+
+**Outputs** (`200`): the updated Class.
+
+**Example**
+```
+POST https://example.com/api/v1/classes/1/update
+Authorization: Bearer eyJhbGciOi...
+Content-Type: application/json
+
+{ "name": "MGT 7999 Fall 2026 Section B" }
+```
