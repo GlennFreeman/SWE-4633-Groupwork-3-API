@@ -119,3 +119,21 @@ Content-Type: application/json
 POST https://example.com/api/v1/courses/2/delete
 Authorization: Bearer eyJhbGciOi...
 ```
+
+## Add Scenario to Course
+**Endpoint:** `/courses/{id}/add_scenario/{scenario_id}`\
+**Method:** `POST`
+
+**Inputs**
+| Name | Location | Type | Required | Description |
+|------|----------|------|----------|-------------|
+| id | path | integer | Yes | Course ID |
+| scenario_id | path | integer | Yes | Scenario ID |
+
+**Outputs:** none (`200`).
+
+**Example**
+```
+POST https://example.com/api/v1/courses/2/add_scenario/5
+Authorization: Bearer eyJhbGciOi...
+```
