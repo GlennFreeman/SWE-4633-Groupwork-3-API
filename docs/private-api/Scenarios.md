@@ -35,3 +35,20 @@ Authorization: Bearer eyJhbGciOi...
 | Name | Location | Type | Required | Description |
 |------|----------|------|----------|-------------|
 | id | path | integer | Yes | Scenario ID |
+
+**Outputs** (`200`)
+| Field | Type | Description |
+|-------|------|-------------|
+| id | integer | Scenario ID |
+| name | string | Scenario name |
+| first_prompt_id | integer | Prompt shown first |
+| prompts | array | All [Prompts](link_to_prompts_later) in the scenario, with the answer key |
+
+**Example**
+```
+GET https://example.com/api/v1/scenarios/5
+Authorization: Bearer eyJhbGciOi...
+```
+```json
+{ "id": 5, "name": "Budget Crisis", "first_prompt_id": 11, "prompts": [{ "id": 11, "value": { "from": "CEO", "subject": "Welcome", "body": "..." }, "answers": [{ "id": 30, "value": { "text": "Acknowledge" }, "points": 3, "next_prompt_id": null }] }] }
+```
