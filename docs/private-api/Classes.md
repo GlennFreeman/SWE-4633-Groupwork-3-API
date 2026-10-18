@@ -52,3 +52,23 @@ Authorization: Bearer eyJhbGciOi...
 ```json
 { "id": 1, "name": "MGT 7999 Fall 2026", "students": [{ "id": 1, "name": "Alice", "email": "alice@example.com" }], "courses": [{ "id": 2, "name": "Finance Basics" }] }
 ```
+
+## Create Class
+**Endpoint:** `/classes/create`\
+**Method:** `POST`
+
+**Inputs**
+| Name | Location | Type | Required | Description |
+|------|----------|------|----------|-------------|
+| name | body | string | Yes | Class name |
+
+**Outputs** (`200`): the created Class.
+
+**Example**
+```
+POST https://example.com/api/v1/classes/create
+Authorization: Bearer eyJhbGciOi...
+Content-Type: application/json
+
+{ "name": "MGT 7999 Spring 2027" }
+```
