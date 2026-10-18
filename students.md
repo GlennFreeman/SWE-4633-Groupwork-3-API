@@ -2,14 +2,19 @@
 
 ### Student Login
 Verify a student's email and password.
+
 **Endpoint:** `/students/login`
+
 **Method:** `POST`
+
 **Authentication:** Not required before login
+
 **Request Body:** JSON
-| Parameter | Type    | Required | Description |
+
+| Field | Type    | Required | Description |
 |-----------|---------|----------|-------------|
-| email     | integer |   Yes    | Email address associated with the student's account. |
-|Password   | string  |   Yes    | Password for the student's account. |
+| email     | string |   Yes    | Email address associated with the student's account. |
+|password   | string  |   Yes    | Password for the student's account. |
 
 **Example Request Body:**
 
@@ -20,15 +25,17 @@ Verify a student's email and password.
 }
 ```
 **Output Fields:**
-| Parameter | Type | Description |
+| Field | Type | Description |
 |-----------|------|-------------|
-| success   | boolean | Whether the student's email and password were wrified successfully. |
+| success   | boolean | Whether the student's credentials were verified successfully. |
+| accessToken | string | JWT returned after successful login, used to authenticate later requests. |
 
 **Example Successful Response:**
 
 ```json
 {
-  "success": true
+  "success": true,
+  "accessToken": "<jwt_token>"
 }
 ```
 
@@ -46,3 +53,50 @@ Content-Type: application/json
 ```
 
 `https://api.example.com` is a placeholder for the deployed API's base URL.
+
+### Get My Assigned Courses
+Retrieve the courses assigned to the logged-in student, including courses assigned directly or through their class.
+
+**Endpoint:** `/students/me/courses`
+
+**Method:** `GET`
+
+**Authentication:** Required
+
+**Inputs:**
+| Header | Type | Required | Description|
+|--------|------|----------|------------|
+|Authorization| string | Yes | Bearer token containing JWT returned after successful login. |
+
+No path parameters, query parameters, or request body are required. The server identifies the student from the verified JWT.
+
+**Output Fields:**
+| Field | Type | Description |
+|-------|------|-------------|
+| courses | array of objects | Courses assigned to the authenticated student. Empty if no courses are assigned. |
+| courses[].courseID | string | Unique identifier of the assigned course. | 
+| courses[].title | string | Title of the assigned course. |
+
+**Example Successful Response:**
+```json
+{
+  "courses": [
+{
+  "courseID": "course-001",
+  "title": "Workplace Communication"
+},
+{
+  "courseID": "course-002",
+  "title": "Managing Customer Concerns"
+}
+  ]
+}
+```
+**Example Usage:**
+```http
+GET /students/me/courses HTTP/1.1
+Host: api.example.com
+Authorization: Bearer <jwt_token>
+Accept: application/json
+```
+`https://api.example.com` is a placeholder for the deployed API's base URL. `<jwt_token>` will be replaced with the access token returned after successful login.
