@@ -115,3 +115,24 @@ Content-Type: application/json
 
 { "value": { "from": "CFO", "subject": "Budget cut", "body": "We need to cut 10%." } }
 ```
+
+## Update Prompt
+**Endpoint:** `/prompts/{id}/update`\
+**Method:** `POST`
+
+**Inputs**
+| Name | Location | Type | Required | Description |
+|------|----------|------|----------|-------------|
+| id | path | integer | Yes | Prompt ID |
+| value | body | object | Yes | New email content |
+
+**Outputs** (`200`): the updated Prompt.
+
+**Example**
+```
+POST https://example.com/api/v1/prompts/12/update
+Authorization: Bearer eyJhbGciOi...
+Content-Type: application/json
+
+{ "value": { "from": "CFO", "subject": "Budget cut", "body": "Cut 15% instead." } }
+```
