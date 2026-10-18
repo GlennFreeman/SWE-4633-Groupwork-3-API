@@ -52,3 +52,23 @@ Authorization: Bearer eyJhbGciOi...
 ```json
 { "id": 5, "name": "Budget Crisis", "first_prompt_id": 11, "prompts": [{ "id": 11, "value": { "from": "CEO", "subject": "Welcome", "body": "..." }, "answers": [{ "id": 30, "value": { "text": "Acknowledge" }, "points": 3, "next_prompt_id": null }] }] }
 ```
+
+## Create Scenario
+**Endpoint:** `/scenarios/create`\
+**Method:** `POST`
+
+**Inputs**
+| Name | Location | Type | Required | Description |
+|------|----------|------|----------|-------------|
+| name | body | string | Yes | Scenario name |
+
+**Outputs** (`200`): the created scenario (`id`, `name`, `first_prompt_id` null until set).
+
+**Example**
+```
+POST https://example.com/api/v1/scenarios/create
+Authorization: Bearer eyJhbGciOi...
+Content-Type: application/json
+
+{ "name": "Budget Crisis" }
+```
