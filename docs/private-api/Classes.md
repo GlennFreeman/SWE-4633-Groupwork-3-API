@@ -164,3 +164,22 @@ Authorization: Bearer eyJhbGciOi...
 POST https://example.com/api/v1/classes/1/add_course/2
 Authorization: Bearer eyJhbGciOi...
 ```
+
+
+## Unassign Course from Class
+**Endpoint:** `/classes/{id}/remove_course/{course_id}`\
+**Method:** `POST`
+
+**Inputs**
+| Name | Location | Type | Required | Description |
+|------|----------|------|----------|-------------|
+| id | path | integer | Yes | Class ID |
+| course_id | path | integer | Yes | Course ID |
+
+**Outputs:** none (`200`).
+
+**Example**
+```
+POST https://example.com/api/v1/classes/1/remove_course/2
+Authorization: Bearer eyJhbGciOi...
+```
