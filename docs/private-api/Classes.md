@@ -93,3 +93,20 @@ Content-Type: application/json
 
 { "name": "MGT 7999 Fall 2026 Section B" }
 ```
+
+## Delete Class
+**Endpoint:** `/classes/{id}/delete`\
+**Method:** `POST`
+
+**Inputs**
+| Name | Location | Type | Required | Description |
+|------|----------|------|----------|-------------|
+| id | path | integer | Yes | Class ID |
+
+**Outputs:** none (`200`).
+
+**Example**
+```
+POST https://example.com/api/v1/classes/1/delete
+Authorization: Bearer eyJhbGciOi...
+```
