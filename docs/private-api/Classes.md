@@ -110,3 +110,21 @@ Content-Type: application/json
 POST https://example.com/api/v1/classes/1/delete
 Authorization: Bearer eyJhbGciOi...
 ```
+
+## Add Student to Class
+**Endpoint:** `/classes/{id}/add_student/{user_id}`\
+**Method:** `POST`
+
+**Inputs**
+| Name | Location | Type | Required | Description |
+|------|----------|------|----------|-------------|
+| id | path | integer | Yes | Class ID |
+| user_id | path | integer | Yes | Student's user ID |
+
+**Outputs:** none (`200`).
+
+**Example**
+```
+POST https://example.com/api/v1/classes/1/add_student/3
+Authorization: Bearer eyJhbGciOi...
+```
