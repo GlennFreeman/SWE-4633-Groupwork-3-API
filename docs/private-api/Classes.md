@@ -26,3 +26,29 @@ Authorization: Bearer eyJhbGciOi...
   ...
 ]
 ```
+
+## Get Class
+**Endpoint:** `/classes/{id}`\
+**Method:** `GET`
+
+**Inputs**
+| Name | Location | Type | Required | Description |
+|------|----------|------|----------|-------------|
+| id | path | integer | Yes | Class ID |
+
+**Outputs** (`200`)
+| Field | Type | Description |
+|-------|------|-------------|
+| id | integer | Class ID |
+| name | string | Class name |
+| students | array | Enrolled students, each with `id` (integer), `name` (string), `email` (string) |
+| courses | array | Assigned courses, each with `id` (integer), `name` (string) |
+
+**Example**
+```
+GET https://example.com/api/v1/classes/1
+Authorization: Bearer eyJhbGciOi...
+```
+```json
+{ "id": 1, "name": "MGT 7999 Fall 2026", "students": [{ "id": 1, "name": "Alice", "email": "alice@example.com" }], "courses": [{ "id": 2, "name": "Finance Basics" }] }
+```
