@@ -42,7 +42,7 @@ Authorization: Bearer eyJhbGciOi...
 | id | integer | Scenario ID |
 | name | string | Scenario name |
 | first_prompt_id | integer | Prompt shown first |
-| prompts | array | All [Prompts](link_to_prompts_later) in the scenario, with the answer key |
+| prompts | array | All [Prompts](index.html#shared-objects) in the scenario, with the answer key |
 
 **Example**
 ```
@@ -135,4 +135,21 @@ Authorization: Bearer eyJhbGciOi...
 Content-Type: application/json
 
 { "value": { "from": "CFO", "subject": "Budget cut", "body": "Cut 15% instead." } }
+```
+
+## Delete Prompt
+**Endpoint:** `/prompts/{id}/delete`\
+**Method:** `POST`
+
+**Inputs**
+| Name | Location | Type | Required | Description |
+|------|----------|------|----------|-------------|
+| id | path | integer | Yes | Prompt ID |
+
+**Outputs:** none (`200`).
+
+**Example**
+```
+POST https://example.com/api/v1/prompts/12/delete
+Authorization: Bearer eyJhbGciOi...
 ```
