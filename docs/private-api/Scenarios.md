@@ -26,3 +26,12 @@ Authorization: Bearer eyJhbGciOi...
   ...
 ]
 ```
+
+## Get Scenario
+**Endpoint:** `/scenarios/{id}`\
+**Method:** `GET`
+
+**Inputs**
+| Name | Location | Type | Required | Description |
+|------|----------|------|----------|-------------|
+| id | path | integer | Yes | Scenario ID |
