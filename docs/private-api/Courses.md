@@ -60,6 +60,7 @@ Authorization: Bearer eyJhbGciOi...
 }
 ```
 
+
 ## Create Course
 **Endpoint:** `/courses/create`\
 **Method:** `POST`
@@ -68,8 +69,9 @@ Authorization: Bearer eyJhbGciOi...
 | Name | Location | Type | Required | Description |
 |------|----------|------|----------|-------------|
 | name | body | string | Yes | Course name |
+| scenario_ids | body | array of integers | No | IDs of scenarios to put in the course |
 
-**Outputs** (`200`): the created Course.
+**Outputs** (`200`): the created Course, with its `scenarios` array.
 
 **Example**
 ```
@@ -77,5 +79,27 @@ POST https://example.com/api/v1/courses/create
 Authorization: Bearer eyJhbGciOi...
 Content-Type: application/json
 
-{ "name": "Finance Basics" }
+{ "name": "Finance Basics", "scenario_ids": [5, 6] }
+```
+
+## Update Course
+**Endpoint:** `/courses/{id}/update`\
+**Method:** `POST`
+
+**Inputs**
+| Name | Location | Type | Required | Description |
+|------|----------|------|----------|-------------|
+| id | path | integer | Yes | Course ID |
+| name | body | string | Yes | New name |
+| scenario_ids | body | array of integers | No | IDs of the scenarios the course should contain. Replaces the current list. Leave it out to keep the current scenarios |
+
+**Outputs** (`200`): the updated Course, with its `scenarios` array.
+
+**Example**
+```
+POST https://example.com/api/v1/courses/2/update
+Authorization: Bearer eyJhbGciOi...
+Content-Type: application/json
+
+{ "name": "Finance Fundamentals", "scenario_ids": [5, 7] }
 ```
