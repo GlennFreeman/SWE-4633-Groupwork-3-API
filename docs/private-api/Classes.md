@@ -146,3 +146,21 @@ Authorization: Bearer eyJhbGciOi...
 POST https://example.com/api/v1/classes/1/remove_student/3
 Authorization: Bearer eyJhbGciOi...
 ```
+
+## Assign Course to Class
+**Endpoint:** `/classes/{id}/add_course/{course_id}`\
+**Method:** `POST`
+
+**Inputs**
+| Name | Location | Type | Required | Description |
+|------|----------|------|----------|-------------|
+| id | path | integer | Yes | Class ID |
+| course_id | path | integer | Yes | Course ID |
+
+**Outputs:** none (`200`).
+
+**Example**
+```
+POST https://example.com/api/v1/classes/1/add_course/2
+Authorization: Bearer eyJhbGciOi...
+```
