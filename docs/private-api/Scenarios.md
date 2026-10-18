@@ -72,3 +72,25 @@ Content-Type: application/json
 
 { "name": "Budget Crisis" }
 ```
+
+## Update Scenario
+**Endpoint:** `/scenarios/{id}/update`\
+**Method:** `POST`
+
+**Inputs**
+| Name | Location | Type | Required | Description |
+|------|----------|------|----------|-------------|
+| id | path | integer | Yes | Scenario ID |
+| name | body | string | No | New name |
+| first_prompt_id | body | integer | No | Prompt to show first |
+
+**Outputs** (`200`): the updated scenario.
+
+**Example**
+```
+POST https://example.com/api/v1/scenarios/5/update
+Authorization: Bearer eyJhbGciOi...
+Content-Type: application/json
+
+{ "first_prompt_id": 11 }
+```
