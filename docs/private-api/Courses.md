@@ -59,3 +59,23 @@ Authorization: Bearer eyJhbGciOi...
   ]
 }
 ```
+
+## Create Course
+**Endpoint:** `/courses/create`\
+**Method:** `POST`
+
+**Inputs**
+| Name | Location | Type | Required | Description |
+|------|----------|------|----------|-------------|
+| name | body | string | Yes | Course name |
+
+**Outputs** (`200`): the created Course.
+
+**Example**
+```
+POST https://example.com/api/v1/courses/create
+Authorization: Bearer eyJhbGciOi...
+Content-Type: application/json
+
+{ "name": "Finance Basics" }
+```
