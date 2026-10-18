@@ -94,3 +94,24 @@ Content-Type: application/json
 
 { "first_prompt_id": 11 }
 ```
+
+## Add Prompt
+**Endpoint:** `/scenarios/{id}/add_prompt`\
+**Method:** `POST`
+
+**Inputs**
+| Name | Location | Type | Required | Description |
+|------|----------|------|----------|-------------|
+| id | path | integer | Yes | Scenario ID |
+| value | body | object | Yes | The email: `from` (string), `subject` (string), `body` (string) |
+
+**Outputs** (`200`): the created [Prompt](index.html#shared-objects) with an empty `answers` array.
+
+**Example**
+```
+POST https://example.com/api/v1/scenarios/5/add_prompt
+Authorization: Bearer eyJhbGciOi...
+Content-Type: application/json
+
+{ "value": { "from": "CFO", "subject": "Budget cut", "body": "We need to cut 10%." } }
+```
