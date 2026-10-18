@@ -199,3 +199,20 @@ Content-Type: application/json
 
 { "points": 5 }
 ```
+
+## Delete Answer
+**Endpoint:** `/answers/{id}/delete`\
+**Method:** `POST`
+
+**Inputs**
+| Name | Location | Type | Required | Description |
+|------|----------|------|----------|-------------|
+| id | path | integer | Yes | Answer ID |
+
+**Outputs:** none (`200`).
+
+**Example**
+```
+POST https://example.com/api/v1/answers/30/delete
+Authorization: Bearer eyJhbGciOi...
+```
