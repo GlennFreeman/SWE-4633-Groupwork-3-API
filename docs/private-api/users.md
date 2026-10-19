@@ -1,6 +1,6 @@
 ---
-title: Users
-nav_order: 5
+title: Classes
+nav_order: 3
 parent: Private API
 ---
 
