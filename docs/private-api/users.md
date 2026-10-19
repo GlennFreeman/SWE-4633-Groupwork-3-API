@@ -1,3 +1,9 @@
+---
+title: Users
+nav_order: 5
+parent: Private API
+---
+
 ## User Mangagement API
 
 ### Create New User Account
