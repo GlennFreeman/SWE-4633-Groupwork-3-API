@@ -1,92 +1,177 @@
----
-title: Users
-nav_order: 2
-parent: Private API
----
+## User Mangagement API
 
-# Users
-Admin only. A **User** has `id` (integer), `name` (string), `email` (string), `role` (string: `student`, `instructor` or `admin`). The password is hashed on the server and never returned.
+### Create New User Account
 
-## Get All Users
-**Endpoint:** `/users`\
+Create a new account and fill personal info fields.
+
+**Endpoint:** `/user_management/create_account`
+
+**Method:** `POST`
+
+**Authentication:** Required
+
+**Request Body:** JSON
+
+| Field | Type    | Required | Description |
+|-----------|---------|----------|-------------|
+| name     | string |   Yes    | Name of the account. |
+| email     | string |   Yes    | Email address associated with the account. |
+|password   | string  |   Yes    | Password of the account. |
+| role     | int |   Yes    | Role associated with the account. |
+
+**Example Request Body:**
+
+```json
+{
+    "name": "jdoe134",
+    "email": "jdoe1337@gmail.com",
+    "password": "123",
+    "role": 1
+}
+```
+
+**Output Fields:**
+| Field | Type | Description |
+|-----------|------|-------------|
+| success   | boolean | Whether the account's information was valid and an account was created or not. |
+
+**Example Output Body:**
+
+```json
+{
+    "success": true
+}
+```
+
+### Get User Information
+
+Create a new account and fill personal info fields.
+
+**Endpoint:** `/user_management/get_account_info`
+
 **Method:** `GET`
 
-**Inputs:** none.\
-**Outputs** (`200`): array of Users.
+**Authentication:** Required
 
-**Example**
+**Request Body:** JSON
+
+| Field | Type | Description |
+|-----------|------|-------------|
+| email   | string | Email address of the account to retrieve. |
+
+**Example Request Body:**
+
+```http
+GET /user_management/get_account_info?email=jdoe1337%40gmail.com
 ```
-GET https://example.com/api/v1/users
-Authorization: Bearer eyJhbGciOi...
-```
+
+**Output Fields:**
+
+
+| Field | Type    | Description |
+|-----------|---------|-------------|
+| success     | boolean | Indicates whether the account information was successfully retrieved. |
+| name     | string | Name of the account. |
+| email     | string | Email address associated with the account. |
+| role     | int | Role associated with the account. |
+
+**Example Output Body:**
+
 ```json
-[
-  { "id": 1, "name": "Alice", "email": "alice@example.com", "role": "student" },
-  { "id": 2, "name": "Bob", "email": "bob@example.com", "role": "instructor" },
-  ...
-]
+{
+    "success": true
+    "name": "jdoe134",
+    "email": "jdoe1337@gmail.com",
+    "role": 1
+}
 ```
 
-## Create User
-**Endpoint:** `/users/create`\
-**Method:** `POST`
+### Update User Account Information
 
-**Inputs**
-| Name | Location | Type | Required | Description |
-|------|----------|------|----------|-------------|
-| name | body | string | Yes | Display name |
-| email | body | string | Yes | Must be unique, else `400` |
-| password | body | string | Yes | Initial password |
-| role | body | string | Yes | `student`, `instructor` or `admin` |
+Updates one or more fields for an existing user account. Only fields included in the request body are changed.
 
-**Outputs** (`200`): the created User.
+**Endpoint:** `/user_management/update_account`
 
-**Example**
-```
-POST https://example.com/api/v1/users/create
-Authorization: Bearer eyJhbGciOi...
+**Method:** `PATCH`
+
+**Authentication:** Required
+
+**Query Parameters:**
+
+| Field | Type | Required | Description |
+|---|---|---|---|
+| email | string | Yes | Email address associated with the account to update. |
+
+**Request Body:** JSON
+
+| Field | Type | Required | Description |
+|---|---|---|---|
+| name | string | No | New name for the account. |
+| email | string | No | New email address for the account. |
+| role | integer | No | New account role; changes must be limited to authorized users. |
+
+At least one editable field must be required.
+
+**Example Request:**
+
+```http
+PATCH /user_management/update_account?email=jdoe1337%40gmail.com
 Content-Type: application/json
-
-{ "name": "Bob", "email": "bob@example.com", "password": "secret", "role": "instructor" }
 ```
 
-## Update User
-**Endpoint:** `/users/{id}/update`\
-**Method:** `POST`
+**Example Request Body:**
 
-**Inputs**
-| Name | Location | Type | Required | Description |
-|------|----------|------|----------|-------------|
-| id | path | integer | Yes | User ID |
-| name | body | string | No | New name |
-| email | body | string | No | New email |
-| password | body | string | No | New password |
-| role | body | string | No | New role |
-
-**Outputs** (`200`): the updated User.
-
-**Example**
-```
-POST https://example.com/api/v1/users/2/update
-Authorization: Bearer eyJhbGciOi...
-Content-Type: application/json
-
-{ "role": "admin" }
+```json
+{
+  "name": "jdoe135",
+  "email": "jdoe135@gmail.com"
+}
 ```
 
-## Delete User
-**Endpoint:** `/users/{id}/delete`\
-**Method:** `POST`
+**Output Fields:**
+| Field | Type | Description |
+|-----------|------|-------------|
+| success   | boolean | Indicates whether the account was successfully updated. |
 
-**Inputs**
-| Name | Location | Type | Required | Description |
-|------|----------|------|----------|-------------|
-| id | path | integer | Yes | User ID |
+**Example Output Body:**
 
-**Outputs:** none (`200`).
-
-**Example**
+```json
+{
+    "success": true
+}
 ```
-POST https://example.com/api/v1/users/2/delete
-Authorization: Bearer eyJhbGciOi...
+
+### Delete User Account
+
+Deletes the user account associated with the specified email address. This action should be restricted to the account owner or an administrator.
+
+**Endpoint:** `/users/delete_account`
+
+**Method:** `Delete`
+
+**Authentication:** Required
+
+**Query Parameters:**
+
+| Field | Type | Required | Description |
+|---|---|---|---|
+| email | string | Yes | Email address associated with the account to delete. |
+
+**Example Request:**
+
+```http
+DELETE /user_management/delete_account?email=jdoe1337%40gmail.com
+```
+
+**Output Fields:**
+| Field | Type | Description |
+|-----------|------|-------------|
+| success   | boolean | Indicates whether the account was successfully deleted. |
+
+**Example Output Body:**
+
+```json
+{
+    "success": true
+}
 ```
