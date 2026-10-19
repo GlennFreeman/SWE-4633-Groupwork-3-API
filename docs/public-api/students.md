@@ -1,3 +1,9 @@
+---
+title: Students
+nav_order: 1
+parent: Public API
+---
+
 ## Student API
 
 ### Student Login
