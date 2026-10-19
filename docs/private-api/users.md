@@ -1,5 +1,5 @@
 ---
-title: Classes
+title: Users
 nav_order: 3
 parent: Private API
 ---
