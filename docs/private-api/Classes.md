@@ -32,16 +32,25 @@ Authorization: Bearer eyJhbGciOi...
 **Method:** `GET`
 
 **Inputs**
+
 | Name | Location | Type | Required | Description |
+
 |------|----------|------|----------|-------------|
+
 | id | path | integer | Yes | Class ID |
 
 **Outputs** (`200`)
+
 | Field | Type | Description |
+
 |-------|------|-------------|
+
 | id | integer | Class ID |
+
 | name | string | Class name |
+
 | students | array | Enrolled students, each with `id` (integer), `name` (string), `email` (string) |
+
 | courses | array | Assigned courses, each with `id` (integer), `name` (string) |
 
 **Example**
@@ -58,8 +67,11 @@ Authorization: Bearer eyJhbGciOi...
 **Method:** `POST`
 
 **Inputs**
+
 | Name | Location | Type | Required | Description |
+
 |------|----------|------|----------|-------------|
+
 | name | body | string | Yes | Class name |
 
 **Outputs** (`200`): the created Class.
@@ -78,9 +90,13 @@ Content-Type: application/json
 **Method:** `POST`
 
 **Inputs**
+
 | Name | Location | Type | Required | Description |
+
 |------|----------|------|----------|-------------|
+
 | id | path | integer | Yes | Class ID |
+
 | name | body | string | Yes | New name |
 
 **Outputs** (`200`): the updated Class.
@@ -99,8 +115,11 @@ Content-Type: application/json
 **Method:** `POST`
 
 **Inputs**
+
 | Name | Location | Type | Required | Description |
+
 |------|----------|------|----------|-------------|
+
 | id | path | integer | Yes | Class ID |
 
 **Outputs:** none (`200`).
@@ -116,9 +135,13 @@ Authorization: Bearer eyJhbGciOi...
 **Method:** `POST`
 
 **Inputs**
+
 | Name | Location | Type | Required | Description |
+
 |------|----------|------|----------|-------------|
+
 | id | path | integer | Yes | Class ID |
+
 | user_id | path | integer | Yes | Student's user ID |
 
 **Outputs:** none (`200`).
@@ -134,9 +157,13 @@ Authorization: Bearer eyJhbGciOi...
 **Method:** `POST`
 
 **Inputs**
+
 | Name | Location | Type | Required | Description |
+
 |------|----------|------|----------|-------------|
+
 | id | path | integer | Yes | Class ID |
+
 | user_id | path | integer | Yes | Student's user ID |
 
 **Outputs:** none (`200`).
@@ -152,9 +179,13 @@ Authorization: Bearer eyJhbGciOi...
 **Method:** `POST`
 
 **Inputs**
+
 | Name | Location | Type | Required | Description |
+
 |------|----------|------|----------|-------------|
+
 | id | path | integer | Yes | Class ID |
+
 | course_id | path | integer | Yes | Course ID |
 
 **Outputs:** none (`200`).
@@ -171,9 +202,13 @@ Authorization: Bearer eyJhbGciOi...
 **Method:** `POST`
 
 **Inputs**
+
 | Name | Location | Type | Required | Description |
+
 |------|----------|------|----------|-------------|
+
 | id | path | integer | Yes | Class ID |
+
 | course_id | path | integer | Yes | Course ID |
 
 **Outputs:** none (`200`).

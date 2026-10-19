@@ -19,10 +19,15 @@ Create a new account and fill personal info fields.
 **Request Body:** JSON
 
 | Field | Type    | Required | Description |
+
 |-----------|---------|----------|-------------|
+
 | name     | string |   Yes    | Name of the account. |
+
 | email     | string |   Yes    | Email address associated with the account. |
+
 |password   | string  |   Yes    | Password of the account. |
+
 | role     | int |   Yes    | Role associated with the account. |
 
 **Example Request Body:**
@@ -37,8 +42,11 @@ Create a new account and fill personal info fields.
 ```
 
 **Output Fields:**
+
 | Field | Type | Description |
+
 |-----------|------|-------------|
+
 | success   | boolean | Whether the account's information was valid and an account was created or not. |
 
 **Example Output Body:**
@@ -62,7 +70,9 @@ Create a new account and fill personal info fields.
 **Request Body:** JSON
 
 | Field | Type | Description |
+
 |-----------|------|-------------|
+
 | email   | string | Email address of the account to retrieve. |
 
 **Example Request Body:**
@@ -75,10 +85,15 @@ GET /user_management/get_account_info?email=jdoe1337%40gmail.com
 
 
 | Field | Type    | Description |
+
 |-----------|---------|-------------|
+
 | success     | boolean | Indicates whether the account information was successfully retrieved. |
+
 | name     | string | Name of the account. |
+
 | email     | string | Email address associated with the account. |
+
 | role     | int | Role associated with the account. |
 
 **Example Output Body:**
@@ -105,15 +120,21 @@ Updates one or more fields for an existing user account. Only fields included in
 **Query Parameters:**
 
 | Field | Type | Required | Description |
+
 |---|---|---|---|
+
 | email | string | Yes | Email address associated with the account to update. |
 
 **Request Body:** JSON
 
 | Field | Type | Required | Description |
+
 |---|---|---|---|
+
 | name | string | No | New name for the account. |
+
 | email | string | No | New email address for the account. |
+
 | role | integer | No | New account role; changes must be limited to authorized users. |
 
 At least one editable field must be required.
@@ -135,8 +156,11 @@ Content-Type: application/json
 ```
 
 **Output Fields:**
+
 | Field | Type | Description |
+
 |-----------|------|-------------|
+
 | success   | boolean | Indicates whether the account was successfully updated. |
 
 **Example Output Body:**
@@ -160,7 +184,9 @@ Deletes the user account associated with the specified email address. This actio
 **Query Parameters:**
 
 | Field | Type | Required | Description |
+
 |---|---|---|---|
+
 | email | string | Yes | Email address associated with the account to delete. |
 
 **Example Request:**
@@ -170,8 +196,11 @@ DELETE /user_management/delete_account?email=jdoe1337%40gmail.com
 ```
 
 **Output Fields:**
+
 | Field | Type | Description |
+
 |-----------|------|-------------|
+
 | success   | boolean | Indicates whether the account was successfully deleted. |
 
 **Example Output Body:**

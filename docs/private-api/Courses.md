@@ -32,15 +32,23 @@ Authorization: Bearer eyJhbGciOi...
 **Method:** `GET`
 
 **Inputs**
+
 | Name | Location | Type | Required | Description |
+
 |------|----------|------|----------|-------------|
+
 | id | path | integer | Yes | Course ID |
 
 **Outputs** (`200`)
+
 | Field | Type | Description |
+
 |-------|------|-------------|
+
 | id | integer | Course ID |
+
 | name | string | Course name |
+
 | scenarios | array | Scenarios in the course, each with `id` (integer), `name` (string) |
 
 **Example**
@@ -65,9 +73,13 @@ Authorization: Bearer eyJhbGciOi...
 **Method:** `POST`
 
 **Inputs**
+
 | Name | Location | Type | Required | Description |
+
 |------|----------|------|----------|-------------|
+
 | name | body | string | Yes | Course name |
+
 | scenario_ids | body | array of integers | No | IDs of scenarios to put in the course |
 
 **Outputs** (`200`): the created Course, with its `scenarios` array.
@@ -86,10 +98,15 @@ Content-Type: application/json
 **Method:** `POST`
 
 **Inputs**
+
 | Name | Location | Type | Required | Description |
+
 |------|----------|------|----------|-------------|
+
 | id | path | integer | Yes | Course ID |
+
 | name | body | string | Yes | New name |
+
 | scenario_ids | body | array of integers | No | IDs of the scenarios the course should contain. Replaces the current list. Leave it out to keep the current scenarios |
 
 **Outputs** (`200`): the updated Course, with its `scenarios` array.
@@ -108,8 +125,11 @@ Content-Type: application/json
 **Method:** `POST`
 
 **Inputs**
+
 | Name | Location | Type | Required | Description |
+
 |------|----------|------|----------|-------------|
+
 | id | path | integer | Yes | Course ID |
 
 **Outputs:** none (`200`).
@@ -125,9 +145,13 @@ Authorization: Bearer eyJhbGciOi...
 **Method:** `POST`
 
 **Inputs**
+
 | Name | Location | Type | Required | Description |
+
 |------|----------|------|----------|-------------|
+
 | id | path | integer | Yes | Course ID |
+
 | scenario_id | path | integer | Yes | Scenario ID |
 
 **Outputs:** none (`200`).
@@ -143,9 +167,13 @@ Authorization: Bearer eyJhbGciOi...
 **Method:** `POST`
 
 **Inputs**
+
 | Name | Location | Type | Required | Description |
+
 |------|----------|------|----------|-------------|
+
 | id | path | integer | Yes | Course ID |
+
 | scenario_id | path | integer | Yes | Scenario ID |
 
 **Outputs:** none (`200`).

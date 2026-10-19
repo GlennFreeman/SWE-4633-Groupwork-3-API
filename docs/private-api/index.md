@@ -17,28 +17,46 @@ Internal services used by the faculty CMS. These are not meant to be called by o
 Errors return `{ "error": "message" }` (string) with a status code.
 
 | Status | Meaning |
+
 |--------|---------|
+
 | 400 | Missing or invalid input |
+
 | 401 | Missing or invalid token |
+
 | 403 | Role not allowed |
+
 | 404 | Not found |
 
 ## Shared objects
 **Prompt** (instructor view, includes the answer key)
+
 | Field | Type | Description |
+
 |-------|------|-------------|
+
 | id | integer | Prompt ID |
+
 | value | object | The email: `from` (string), `subject` (string), `body` (string) |
+
 | answers | array | Each has `id` (integer), `value` (object, `text` string), `points` (integer), `next_prompt_id` (integer or null; null ends the scenario) |
 
 A scenario with one path through its prompts is linear. Answers pointing to different prompts make it branching.
 
 ## Endpoints
+
 | Page | Endpoints |
+
 |------|-----------|
+
 | [Users](users.html) | `/users` list, create, update, delete (admin only) |
+
 | [Classes](classes.html) | `/classes` list, get, create, update, delete, students and courses in a class |
+
 | [Courses](courses.html) | `/courses` list, create, update, delete, scenarios in a course |
+
 | [Scenarios](scenarios.html) | `/scenarios` list, get, create, update, delete, plus `/prompts` and `/answers` |
+
 | [Results](results.html) | `/scenarios/{id}/attempts`, `/users/{id}/attempts`, `/attempts/{id}` |
+
 | [Why These Are Private](justification.html) | Justification |

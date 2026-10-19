@@ -17,24 +17,38 @@ Services for the student-facing client. Anyone can build a client against these.
 Errors return `{ "error": "message" }` (string) with a status code.
 
 | Status | Meaning |
+
 |--------|---------|
+
 | 400 | Missing or invalid input |
+
 | 401 | Missing, invalid or wrong credentials |
+
 | 403 | Not allowed (e.g. scenario not assigned to you) |
+
 | 404 | Not found |
 
 ## Shared object: Prompt
 A prompt is one simulated email plus the replies the student can choose from. Answer points and next-prompt links are never included.
 
 | Field | Type | Description |
+
 |-------|------|-------------|
+
 | id | integer | Prompt ID |
+
 | value | object | The email: `from` (string), `subject` (string), `body` (string) |
+
 | answers | array | Reply options. Each has `id` (integer) and `value` (object with `text` string) |
 
 ## Endpoints
+
 | Page | Endpoints |
+
 |------|-----------|
+
 | [Auth](auth.html) | `POST /auth/login` |
+
 | [Scenarios](scenarios.html) | `GET /me/scenarios` |
+
 | [Attempts](attempts.html) | `POST /me/scenarios/{scenario_id}/start_attempt`, `POST /me/attempts/{attempt_id}/submit_answer`, `GET /me/attempts` |

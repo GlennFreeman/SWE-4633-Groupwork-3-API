@@ -18,8 +18,11 @@ Verify a student's email and password.
 **Request Body:** JSON
 
 | Field | Type    | Required | Description |
+
 |-----------|---------|----------|-------------|
+
 | email     | string |   Yes    | Email address associated with the student's account. |
+
 |password   | string  |   Yes    | Password for the student's account. |
 
 **Example Request Body:**
@@ -31,9 +34,13 @@ Verify a student's email and password.
 }
 ```
 **Output Fields:**
+
 | Field | Type | Description |
+
 |-----------|------|-------------|
+
 | success   | boolean | Whether the student's credentials were verified successfully. |
+
 | accessToken | string | JWT returned after successful login, used to authenticate later requests. |
 
 **Example Successful Response:**
@@ -70,17 +77,25 @@ Retrieve the courses assigned to the logged-in student, including courses assign
 **Authentication:** Required
 
 **Inputs:**
+
 | Header | Type | Required | Description|
+
 |--------|------|----------|------------|
+
 |Authorization| string | Yes | Bearer token containing JWT returned after successful login. |
 
 No path parameters, query parameters, or request body are required. The server identifies the student from the verified JWT.
 
 **Output Fields:**
+
 | Field | Type | Description |
+
 |-------|------|-------------|
+
 | courses | array of objects | Courses assigned to the authenticated student. Empty if no courses are assigned. |
+
 | courses[].courseID | string | Unique identifier of the assigned course. | 
+
 | courses[].title | string | Title of the assigned course. |
 
 **Example Successful Response:**
@@ -117,10 +132,15 @@ Start a new attempt for a scenario within a course assigned to the logged-in stu
 **Authentication:** Required
 
 **Inputs:**
+
 | Parameter | Location | Type | Required | Description |
+
 |-----------|----------|------|----------|-------------|
+
 |Authorization | header | string | Yes | Bearer token containing the student's JWT. |
+
 | courseId | body | string | Yes | Identifier of the assigned course containing the scenario. |
+
 | scenarioId | body | string | Yes | Identifier of the scenario the student wants to attempt. |
 
 **Request Body:** JSON
@@ -133,11 +153,17 @@ Start a new attempt for a scenario within a course assigned to the logged-in stu
 }
 ```
 **Output Fields:**
+
 | Field | Type | Description |
+
 |-------|------|-------------|
+
 | attempt Id | string | Unique identifier of the newly created attempt. |
+
 | courseId | string | Identifier of the course containing the scenario. |
+
 | scenarioId | string | Identifier of the scenario being attempted. |
+
 | completed | boolean | Whether the attempt has finished. |
 
 **Example Successful Response:**
@@ -173,20 +199,31 @@ Retrieve the available inbox messages for an attempt owned by the logged-in stud
 **Authentication:** Required
 
 **Inputs:**
+
 | Parameter | Location | Type | Required | Description |
+
 |-----------|----------|------|----------|-------------|
+
 | Authorization | header | string | Yes | Bearer token containing the student's JWT. |
+
 | attemptId | path | string | Yes | Identifier of the student's attempt. |
 
 No request body is required. The server verifies that the attempt belongs to the authenticated student.
 
 **Outputs Fields:**
+
 | Field | Type | Description |
+
 |-------|------|-------------|
+
 | messages | array of objects | Available inbox messages. Empty if no messages are available. |
+
 | messages[].messageId | string | Unique identifier of the message. |
+
 | messages[].sender | string | Display name of the simulated sender. |
+
 | messages[].subject | string | Subject of the message. |
+
 | messages[].body | string | Text content of the message. |
 
 **Example Successful Response:**
@@ -221,18 +258,27 @@ Retrieve the available response choices for a message in an attempt owned by the
 **Authentication:** Required
 
 **Inputs:**
+
 | Parameter | Location | Type | Required | Description |
+
 |-----------|----------|------|----------|-------------|
+
 | Authorization | header | string | Yes | Bearer token containing the student's JWT. |
+
 | attemptId | path | string | Yes | Identifier of the student's attempt. |
+
 | messageId | path | string | Yes | Identifier of the message within that attempt. |
 
 No request body is required. The server verifies that the attempt belongs to the authenticated student and that the message belongs to the attempt.
 
 **Output Fields:**
+
 | Field | Type | Description |
+
 |-------|------|-------------|
+
 | options | array of objects | Available response choices. Empty if no choices are available. |
+
 | options[].optionId | string | Unique identifier of the response option. |
 
 **Example Successful Response:**
@@ -270,11 +316,17 @@ Submit a selected response option for a message in an attempt owned by the logge
 **Authentication:** Required
 
 **Inputs:**
+
 | Parameter | Location | Type | Required | Description |
+
 |-----------|----------|------|----------|-------------|
+
 | Authorization | header | string | Yes | Bearer token containing the student's JWT. |
+
 | attemptId | path | string | Yes | Identifier of the student's attempt. |
+
 | messageId | path | string | Yes | Identifier of the message within that attempt. |
+
 | optionId | body | string | Yes | Identifier of the selected response option. |
 
 The server verifies that the student owns the attempt, the message belongs to it, and the selected option is valid for the message.
@@ -289,12 +341,19 @@ The server verifies that the student owns the attempt, the message belongs to it
 ```
 
 **Output Fields:**
+
 | Field | Type | Description |
+
 |-------|------|-------------|
+
 | attemptId | string | Identifier of the updated attempt. |
+
 | messageId | string | Identifier of the answered message. |
+
 | optionId | string | Identifier of the submitted response option. |
+
 | completed | boolean | Whether the attempt is now complete. |
+
 | feedback | string | Student-facing feedback about the response. Empty if feedback is withheld. |
 
 **Example Successful Response:**
@@ -330,19 +389,29 @@ Retrieve the final results for a completed attempt owned by the logged-in studen
 **Authentication:** Required
 
 **Inputs:**
+
 | Parameter | Location | Type | Required | Description |
+
 |-----------|----------|------|----------|-------------|
+
 | Authorization | header | string | Yes | Bearer token containing the student's JWT. |
+
 | attemptId | path | string | Yes | Identifier of the student's attempt. |
 
 No request body is required. The server verifies that the attempt belongs to the authenticated student and is complete before returning final results.
 
 **Output Fields:**
+
 | Field | Type | Description |
+
 |-------|------|-------------|
+
 | attemptId | string | Unique identifier of the completed attempt. |
+
 | scenarioId | string | Identifier of the scenario attempted. |
+
 | score | number | Final score on a scale from 0 to 100. |
+
 | feedback | string | Student-facing summary of performance. |
 
 **Example Successful Response:**
@@ -374,19 +443,29 @@ Retrieve the logged-in student's attempt history for a specified scenario.
 **Authentication:** Required
 
 **Inputs:**
+
 | Parameter | Location | Type | Required | Description |
+
 |-----------|----------|------|----------|-------------|
+
 | Authorization | header | string | Yes | Bearer token containing the student's JWT. |
+
 | scenarioId | query | string | Yes | Identifier of the scenario whose attempt history is requested. |
 
 No request body is required. Only attempts belonging to the authenticated student is returned.
 
 **Output Fields:**
+
 | Field | Type | Description |
+
 |-------|------|-------------|
+
 | attempts | array of objects | Student's attempt for the specified scenario. Empty if none exist. |
+
 | attempts[].attemptId | string | Unique identifier of the attempt. |
+
 | attempts[].scenarioId | string | Identifier of the scenario attempted. |
+
 | attempts[].completed | boolean | Whether the attempt has finished. |
 
 **Example Successful Response:**
