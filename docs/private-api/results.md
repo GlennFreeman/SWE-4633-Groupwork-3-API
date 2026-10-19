@@ -16,29 +16,19 @@ Every student's attempts for one scenario.
 **Inputs**
 
 | Name | Location | Type | Required | Description |
-
 |------|----------|------|----------|-------------|
-
 | id | path | integer | Yes | Scenario ID |
 
 **Outputs** (`200`): array of attempts
 
 | Field | Type | Description |
-
 |-------|------|-------------|
-
 | attempt_id | integer | Attempt ID |
-
 | user_id | integer | Student's user ID |
-
 | user_name | string | Student's name |
-
 | scenario_id | integer | Scenario ID |
-
 | scenario_name | string | Scenario name |
-
 | total_points | integer | Score for the attempt |
-
 | finished_at | string | When it finished (ISO 8601 datetime) |
 
 **Example**
@@ -63,9 +53,7 @@ Every attempt by one student, across scenarios.
 **Inputs**
 
 | Name | Location | Type | Required | Description |
-
 |------|----------|------|----------|-------------|
-
 | id | path | integer | Yes | Student's user ID |
 
 **Outputs** (`200`): array of attempts, same fields as Get Scenario Attempts.
@@ -92,25 +80,17 @@ One attempt with each answer the student chose and its points.
 **Inputs**
 
 | Name | Location | Type | Required | Description |
-
 |------|----------|------|----------|-------------|
-
 | id | path | integer | Yes | Attempt ID |
 
 **Outputs** (`200`)
 
 | Field | Type | Description |
-
 |-------|------|-------------|
-
 | attempt_id | integer | Attempt ID |
-
 | user_id | integer | Student's user ID |
-
 | scenario_id | integer | Scenario ID |
-
 | total_points | integer | Score for the attempt |
-
 | answers | array | Each has `prompt_id` (integer), `answer_id` (integer), `answer_value` (object, `text` string), `points` (integer) |
 
 **Example**

@@ -34,23 +34,16 @@ Authorization: Bearer eyJhbGciOi...
 **Inputs**
 
 | Name | Location | Type | Required | Description |
-
 |------|----------|------|----------|-------------|
-
 | id | path | integer | Yes | Scenario ID |
 
 **Outputs** (`200`)
 
 | Field | Type | Description |
-
 |-------|------|-------------|
-
 | id | integer | Scenario ID |
-
 | name | string | Scenario name |
-
 | first_prompt_id | integer | Prompt shown first |
-
 | prompts | array | All [Prompts](index.html#shared-objects) in the scenario, with the answer key |
 
 **Example**
@@ -69,9 +62,7 @@ Authorization: Bearer eyJhbGciOi...
 **Inputs**
 
 | Name | Location | Type | Required | Description |
-
 |------|----------|------|----------|-------------|
-
 | name | body | string | Yes | Scenario name |
 
 **Outputs** (`200`): the created scenario (`id`, `name`, `first_prompt_id` null until set).
@@ -92,13 +83,9 @@ Content-Type: application/json
 **Inputs**
 
 | Name | Location | Type | Required | Description |
-
 |------|----------|------|----------|-------------|
-
 | id | path | integer | Yes | Scenario ID |
-
 | name | body | string | No | New name |
-
 | first_prompt_id | body | integer | No | Prompt to show first |
 
 **Outputs** (`200`): the updated scenario.
@@ -119,11 +106,8 @@ Content-Type: application/json
 **Inputs**
 
 | Name | Location | Type | Required | Description |
-
 |------|----------|------|----------|-------------|
-
 | id | path | integer | Yes | Scenario ID |
-
 | value | body | object | Yes | The email: `from` (string), `subject` (string), `body` (string) |
 
 **Outputs** (`200`): the created [Prompt](index.html#shared-objects) with an empty `answers` array.
@@ -144,11 +128,8 @@ Content-Type: application/json
 **Inputs**
 
 | Name | Location | Type | Required | Description |
-
 |------|----------|------|----------|-------------|
-
 | id | path | integer | Yes | Prompt ID |
-
 | value | body | object | Yes | New email content |
 
 **Outputs** (`200`): the updated Prompt.
@@ -169,9 +150,7 @@ Content-Type: application/json
 **Inputs**
 
 | Name | Location | Type | Required | Description |
-
 |------|----------|------|----------|-------------|
-
 | id | path | integer | Yes | Prompt ID |
 
 **Outputs:** none (`200`).
@@ -189,15 +168,10 @@ Authorization: Bearer eyJhbGciOi...
 **Inputs**
 
 | Name | Location | Type | Required | Description |
-
 |------|----------|------|----------|-------------|
-
 | id | path | integer | Yes | Prompt ID the answer belongs to |
-
 | value | body | object | Yes | Answer text: `text` (string) |
-
 | points | body | integer | Yes | Points awarded for choosing this answer |
-
 | next_prompt_id | body | integer | No | Prompt to show next. Omit to end the scenario |
 
 **Outputs** (`200`): the created answer with `id` (integer), `value` (object), `points` (integer), `next_prompt_id` (integer or null).
@@ -218,15 +192,10 @@ Content-Type: application/json
 **Inputs**
 
 | Name | Location | Type | Required | Description |
-
 |------|----------|------|----------|-------------|
-
 | id | path | integer | Yes | Answer ID |
-
 | value | body | object | No | New answer text |
-
 | points | body | integer | No | New points |
-
 | next_prompt_id | body | integer | No | New next prompt (`null` to end the scenario) |
 
 **Outputs** (`200`): the updated answer.
@@ -247,9 +216,7 @@ Content-Type: application/json
 **Inputs**
 
 | Name | Location | Type | Required | Description |
-
 |------|----------|------|----------|-------------|
-
 | id | path | integer | Yes | Answer ID |
 
 **Outputs:** none (`200`).
